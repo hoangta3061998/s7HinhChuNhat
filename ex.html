@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" height="500" width="400" style="border: 1px"></canvas>
+<p id="1"></p>
+<script>
+    let Rectangle = function (hei, wid) {
+        this.hei = hei;
+        this.wid = wid;
+        this.getSquare = function () {
+            return this.hei * this.wid;
+        }
+        this.getPerim = function () {
+            return (this.hei + this.wid) * 2;
+        }
+        this.creatRect = function () {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0, 0, this.hei, this.wid);
+        }
+        this.setSize = function (hei, wid) {
+            this.hei = hei;
+            this.wid = wid;
+        }
+        this.printResult = function () {
+            document.getElementById("1").innerHTML = "Area : " + (this.hei*this.wid) + " - Perimeter: " + (this.hei + this.wid)*2;
+        }
+
+    };
+    let rect = new Rectangle(500, 300);
+    rect.setSize(100, 200);
+    rect.creatRect();
+    rect.printResult();
+
+</script>
+</body>
+</html>
